@@ -1379,7 +1379,7 @@
 
             <tablebody id="classspec_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspec_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspec_table_tablebody_3" dataattribute="ATTRDESCPREFIX" sortable="false" />
+              <tablecol id="classspec_table_tablebody_3" dataattribute="ATTRDESCPREFIX" sortable="false" inputmode="readonly" />
               <tablecol id="classspec_table_tablebody_5" dataattribute="section" />
               <tablecol id="classspec_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" lookup="alndomain" smartfilloff="true" />
             </tablebody>
@@ -1444,7 +1444,7 @@
 
             <tablebody id="classspecAsset_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspecAsset_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspecAsset_table_tablebody_3" dataattribute="ATTRDESCPREFIX" sortable="false" />
+              <tablecol id="classspecAsset_table_tablebody_3" dataattribute="ATTRDESCPREFIX" sortable="false" inputmode="readonly" />
               <tablecol id="classspecAsset_table_tablebody_5" dataattribute="SECTION" />
               <tablecol id="classspecAsset_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" lookup="alndomain" smartfilloff="true" />
             </tablebody>
@@ -1508,7 +1508,7 @@
 
             <tablebody id="classspecLocations_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspecLocations_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspecLocations_table_tablebody_3" dataattribute="ATTRDESCPREFIX" sortable="false" />
+              <tablecol id="classspecLocations_table_tablebody_3" dataattribute="ATTRDESCPREFIX" sortable="false" inputmode="readonly" />
               <tablecol id="classspecLocations_table_tablebody_5" dataattribute="SECTION" />
               <tablecol id="classspecLocations_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" lookup="alndomain" smartfilloff="true" />
             </tablebody>
