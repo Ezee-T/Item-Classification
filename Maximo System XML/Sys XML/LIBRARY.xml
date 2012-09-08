@@ -1375,12 +1375,12 @@
 
         <sectioncol id="searchClassificationItem_container1_row1_col3" >
 
-          <table id="classspec_table" label="Attributes" relationship="CLASSSPEC.ASSETATTRIBUTE" >
+          <table id="classspec_table" label="Attributes" relationship="CLASSSPEC" >
 
             <tablebody id="classspec_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspec_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspecAsset_table_tablebody_3" dataattribute="DESCRIPTION" sortable="false" inputmode="readonly" />
-              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="ALNVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
+              <tablecol id="classspec_table_tablebody_3" dataattribute="ASSETATTRIBUTE.DESCRIPTION" />
+              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
             </tablebody>
 
 
@@ -1439,12 +1439,12 @@
 
         <sectioncol id="searchClassificationAsset_container1_row1_col3" >
 
-          <table id="classspecAsset_table" label="Attributes" relationship="CLASSSPEC.ASSETATTRIBUTE" >
+          <table id="classspecAsset_table" label="Attributes" relationship="CLASSSPEC">
 
             <tablebody id="classspecAsset_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspecAsset_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspecAsset_table_tablebody_3" dataattribute="DESCRIPTION" sortable="false" inputmode="readonly" />
-              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="ALNVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
+              <tablecol id="classspec_table_tablebody_3" dataattribute="ASSETATTRIBUTE.DESCRIPTION" />
+              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
             </tablebody>
 
 
@@ -1502,12 +1502,12 @@
 
         <sectioncol id="searchClassificationLocations_container1_row1_col3" >
 
-          <table id="classspecLocations_table" label="Attributes" relationship="CLASSSPEC.ASSETATTRIBUTE" >
+          <table id="classspecLocations_table" label="Attributes" relationship="CLASSSPEC" >
 
             <tablebody id="classspecLocations_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspecLocations_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspecAsset_table_tablebody_3" dataattribute="DESCRIPTION" sortable="false" inputmode="readonly" />
-              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="ALNVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
+              <tablecol id="classspec_table_tablebody_3" dataattribute="ASSETATTRIBUTE.DESCRIPTION" />
+              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
             </tablebody>
 
 
