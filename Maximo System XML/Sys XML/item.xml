@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<presentation id="item" mboname="ITEM" resultstableid="results_showlist" beanclass="psdi.webclient.beans.item.ItemAppBean" keyattribute="itemnum" version="6.2.7" >
+
+  <page id="mainrec" >
+    <include id="pageHeader" />
+
+    <clientarea id="clientarea" >
+
+      <tabgroup id="maintabs" style="form" >
+
+        <tab id="results" default="true" label="List" type="list" >
+          <menubar id="actiontoolbar" event="search" sourcemethod="getAppSearchOptions" />
+
+          <table id="results_showlist" mboname="ITEM" inputmode="readonly" selectmode="multiple" beanclass="psdi.webclient.beans.item.ItemResultsBean" label="Items" >
+
+            <tablebody id="results_showlist_tablebody" filterable="true" displayrowsperpage="20" filterexpanded="true" >
+              <tablecol id="results_showlist_tablebody_1" type="event" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" dataattribute="itemnum" sortable="false" filterable="false" hidden="false" />
+              <tablecol id="results_showlist_tablebody_2" dataattribute="itemnum" type="link" mxevent="selectrecord" mxevent_desc="Go To %1" menutype="item" />
+              <tablecol id="results_showlist_tablebody_3" dataattribute="description" />
+              <tablecol id="results_showlist_tablebody_4" dataattribute="commoditygroup" />
+              <tablecol id="results_showlist_tablebody_5" dataattribute="rotating" />
+              <tablecol id="results_showlist_tablebody_6" dataattribute="iskit" />
+              <tablecol id="results_showlist_tablebody_7" dataattribute="conditionenabled" />
+              <tablecol id="results_bookmark" type="event" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+
+          </table>
+
+        </tab>
+
+
+        <tab id="main" label="Item" type="insert" >
+
+          <section id="main_gridd" border="true" >
+
+            <sectionrow id="main_gridg" >
+
+              <sectioncol id="main_gride" >
+
+                <section id="main_gridf" >
+                  <multiparttextbox id="main_grid2_1" dataattribute="ITEMNUM" menutype="item" descdataattribute="DESCRIPTION" longdescription="true" />
+                  <multiparttextbox id="main_grid3_1" dataattribute="COMMODITYGROUP" descdataattribute="COMMODITYGROUP.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="commoditygroup" menutype="COMMODITYGROUP" />
+                  <multiparttextbox id="main_grid3_4" dataattribute="COMMODITY" descdataattribute="COMMODITIES.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="commodities" />
+                  <multiparttextbox id="main_grid3_14" dataattribute="GROUPNAME" descdataattribute="METERGROUP.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="metergroup" menutype="normal" applink="metergrp" />
+                  <multiparttextbox id="main_grid3_15" dataattribute="METERNAME" descdataattribute="METER.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="meter" menutype="normal" applink="meter" />
+                  <textbox id="main_grid3_5" dataattribute="LOTTYPE" lookup="valuelist" />
+                  <textbox id="new_textbox" dataattribute="IN1" lookup="VALUELIST" label="Demand Category" />
+                  <textbox id="copy_new_textbox" dataattribute="IN19" lookup="VALUELIST" label="Carbon Footprint" />
+                  <checkbox id="new_checkbox" dataattribute="in25" label="Test Certificate Required" />
+                </section>
+
+              </sectioncol>
+
+
+              <sectioncol id="main_gridh" >
+
+                <section id="main_gridi" >
+                  <textbox id="main_grid2_4" dataattribute="ITEMSETID" />
+                  <textbox id="main_grid3_11" dataattribute="ORDERUNIT" lookup="measureunit" />
+                  <textbox id="main_grid3_12" dataattribute="ISSUEUNIT" lookup="measureunit" />
+                  <textbox id="main_grid3_6" dataattribute="MSDSNUM" />
+                  <checkbox id="main_grid3_9" dataattribute="CAPITALIZED" />
+                  <checkbox id="main_grid3_13" dataattribute="ISKIT" />
+                </section>
+
+              </sectioncol>
+
+
+              <sectioncol id="main_grida_2_1_1a" >
+
+                <section id="main_attachments" border="false" >
+                  <attachments id="doclinks" />
+                  <checkbox id="main_grid2_3" dataattribute="CONDITIONENABLED" />
+                  <checkbox id="main_grid3_8" dataattribute="ROTATING" inputmode="READONLY" />
+                  <checkbox id="main_grid3_10" dataattribute="OUTSIDE" />
+                  <checkbox id="main_grid3_7" dataattribute="INSPECTIONREQUIRED" />
+                  <checkbox id="main_grid3_3" dataattribute="SPAREPARTAUTOADD" />
+                  <checkbox id="main_grid3_16" dataattribute="ATTACHONISSUE" />
+                </section>
+
+              </sectioncol>
+
+            </sectionrow>
+
+          </section>
+
+
+          <table id="main_altitem_table" label="Alternate Items" relationship="ALTITEM" >
+
+            <tablebody id="main_altitem_table_tablebody" filterable="true" displayrowsperpage="10" >
+              <tablecol id="main_altitem_table_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+
+              <tablecol id="main_altitem_table_tablebody_2" dataattribute="altitemnum" >
+                <textbox id="altitem_item" dataattribute="altitemnum" lookup="itemwithitemset" menutype="itemwithitemset" />
+              </tablecol>
+
+
+              <tablecol id="main_altitem_table_tablebody_3" dataattribute="altitem.description" sortable="false" >
+                <textbox id="altitem_desc" dataattribute="altitem.description" inputmode="readonly" lookup="longdesc" longdescreadonly="true" />
+              </tablecol>
+
+              <tablecol id="main_altitem_table_tablebody_4" dataattribute="altitem.commoditygroup" sortable="false" linkedcontrolid="main_altitem_table_1_grid3_3" />
+              <tablecol id="main_altitem_table_tablebody_7" dataattribute="altitem.commodity" sortable="false" linkedcontrolid="main_altitem_table_1_grid3_5" />
+              <tablecol id="main_altitem_table_tablebody_5" dataattribute="altitem.rotating" sortable="false" linkedcontrolid="main_altitem_table_1_grid3_4" />
+              <tablecol id="main_altitem_table_tablebody_6" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+
+
+            <tabledetails id="main_altitem_table_1" >
+
+              <section id="main_altitem_table_1_grid3" label="Details" >
+
+                <sectionrow id="main_altitem_table_1_grid3a" >
+
+                  <sectioncol id="main_altitem_table_1_grid3b" >
+
+                    <section id="main_altitem_table_1_grid3c" >
+                      <multiparttextbox id="main_altitem_table_1_grid3_1" dataattribute="altitemnum" lookup="itemwithitemset" menutype="itemwithitemset" defaultfocus="true" descdataattribute="altitem.description" longdescreadonly="true" descinputmode="readonly" />
+                      <textbox id="main_altitem_table_1_grid3_3" dataattribute="altitem.commoditygroup" inputmode="readonly" />
+                    </section>
+
+                  </sectioncol>
+
+
+                  <sectioncol id="main_altitem_table_1_grid3d" >
+
+                    <section id="main_altitem_table_1_grid3e" >
+                      <textbox id="main_altitem_table_1_grid3_5" dataattribute="altitem.commodity" inputmode="readonly" />
+                      <checkbox id="main_altitem_table_1_grid3_4" dataattribute="altitem.rotating" inputmode="readonly" />
+                    </section>
+
+                  </sectioncol>
+
+                </sectionrow>
+
+              </section>
+
+            </tabledetails>
+
+
+            <buttongroup id="main_altitem_table_2" >
+              <pushbutton id="main_altitem_table_2_1" label="New Row" mxevent="addrow" default="true" />
+            </buttongroup>
+
+          </table>
+
+
+          <table id="main_conditioncode_table" label="Condition Codes" relationship="ITEMCONDITION" >
+
+            <tablebody id="main_conditioncode_table_tablebody" filterable="true" displayrowsperpage="10" >
+              <tablecol id="main_conditioncode_table_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+
+              <tablecol id="main_conditioncode_table_tablebody_2" dataattribute="conditioncode" >
+                <textbox id="main_conditioncode_table_tablebody_2a" dataattribute="conditioncode" lookup="conditioncode" />
+              </tablecol>
+
+
+              <tablecol id="main_conditioncode_table_tablebody_3" dataattribute="description" >
+                <textbox id="main_conditioncode_table_tablebody_3a" dataattribute="description" lookup="longdesc" />
+              </tablecol>
+
+              <tablecol id="main_conditioncode_table_tablebody_4" dataattribute="condrate" />
+              <tablecol id="main_conditioncode_table_tablebody_5" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+
+
+            <tabledetails id="main_conditioncode_table_1" >
+
+              <section id="main_conditioncode_table_1_grid3" label="Details" >
+
+                <sectionrow id="main_conditioncode_table_1_grid3_row" >
+
+                  <sectioncol id="main_conditioncode_table_1_grid3_row_col1" >
+
+                    <section id="main_conditioncode_table_1_grid3_row_col1_sec" >
+                      <multiparttextbox id="main_conditioncode_table_1_grid3_1" dataattribute="conditioncode" lookup="conditioncode" defaultfocus="true" descdataattribute="description" />
+                    </section>
+
+                  </sectioncol>
+
+
+                  <sectioncol id="main_conditioncode_table_1_grid3_row_col2" >
+
+                    <section id="main_conditioncode_table_1_grid3_row_col2_sec" >
+                      <textbox id="main_conditioncode_table_1_grid3_3" dataattribute="condrate" />
+                    </section>
+
+                  </sectioncol>
+
+                </sectionrow>
+
+              </section>
+
+            </tabledetails>
+
+
+            <buttongroup id="main_conditioncode_table_2" >
+              <pushbutton id="main_conditioncode_table_2_1" label="New Row" mxevent="addrow" default="true" />
+            </buttongroup>
+
+          </table>
+
+        </tab>
+
+
+        <tab id="storeroom" label="Storerooms" >
+
+          <section id="store_grida" border="true" >
+
+            <sectionrow id="store_grida_1" >
+
+              <sectioncol id="store_grida_1_1" >
+
+                <section id="store_grida_1_1_1" >
+                  <multiparttextbox id="store_grid2_1" dataattribute="ITEMNUM" menutype="item" descdataattribute="DESCRIPTION" longdescription="true" />
+                </section>
+
+              </sectioncol>
+
+
+              <sectioncol id="store_gridb" >
+
+                <section id="store_gridc" >
+                  <textbox id="store_grid2_4" dataattribute="ITEMSETID" />
+                </section>
+
+              </sectioncol>
+
+            </sectionrow>
+
+          </section>
+
+
+          <table id="storeroom_inventorytable" label="Storeroom Information" relationship="INVENTORY" width="980" >
+
+            <tablebody id="storeroom_inventorytable_tablebody" filterable="true" displayrowsperpage="10" >
+              <tablecol id="storeroom_inventorytable_tablebody_1" dataattribute="location" />
+              <tablecol id="storeroom_inventorytable_tablebody_2" dataattribute="category" />
+              <tablecol id="storeroom_inventorytable_tablebody_3" dataattribute="invcost_cond.stdcost" sortable="false" />
+              <tablecol id="storeroom_inventorytable_tablebody_4" dataattribute="invcost_cond.avgcost" sortable="false" />
+              <tablecol id="storeroom_inventorytable_tablebody_5" dataattribute="invcost_cond.lastcost" sortable="false" />
+              <tablecol id="storeroom_inventorytable_tablebody_6" dataattribute="curbaltotal" filterable="false" sortable="false" />
+              <tablecol id="storeroom_inventorytable_tablebody_7" dataattribute="binnum" />
+              <tablecol id="storeroom_inventorytable_tablebody_8" dataattribute="siteid" />
+              <tablecol id="storeroom_inventorytable_tablebody_9" filterable="false" type="event" mxevent="toggledeleterow" hidden="false" mxevent_desc="Mark Row for Delete" mxevent_icon="btn_garbage.gif" sortable="false" />
+            </tablebody>
+
+          </table>
+
+        </tab>
+
+
+        <tab id="vendors" label="Vendors" >
+
+          <section id="vendor_grida" border="true" >
+
+            <sectionrow id="vendor_grida_1" >
+
+              <sectioncol id="vendor_grida_1_1" >
+
+                <section id="vendor_grida_1_1_1" >
+                  <multiparttextbox id="vendor_grid2_1" dataattribute="ITEMNUM" menutype="item" descdataattribute="DESCRIPTION" longdescription="true" />
+                </section>
+
+              </sectioncol>
+
+
+              <sectioncol id="vendor_gridb" >
+
+                <section id="vendor_gridc" >
+                  <textbox id="vendor_grid2_4" dataattribute="ITEMSETID" />
+                </section>
+
+              </sectioncol>
+
+            </sectionrow>
+
+          </section>
+
+
+          <table id="vendors_prec_table" startrow="0" label="Vendors" relationship="INVVENDOR" >
+
+            <tablebody id="vendors_prec_table_tablebody" filterable="true" displayrowsperpage="5" >
+              <tablecol id="vendors_prec_table_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+              <tablecol id="vendors_prec_table_tablebody_2" dataattribute="vendor" lookup="companies" menutype="normal" applink="company" applinkkey="company" />
+              <tablecol id="vendors_prec_table_tablebody_3" dataattribute="manufacturer" lookup="companies" smartfilloff="true" menutype="normal" applink="company" />
+              <tablecol id="vendors_prec_table_tablebody_4" dataattribute="modelnum" />
+              <tablecol id="vendors_prec_table_tablebody_5" dataattribute="catalogcode" />
+              <tablecol id="vendors_prec_table_tablebody_8" dataattribute="lastcost" />
+              <tablecol id="vendors_prec_table_tablebody_9" dataattribute="lastdate" lookup="datelookup" />
+              <tablecol id="vendors_prec_table_tablebody_10" dataattribute="orderunit" lookup="measureunit" />
+              <tablecol id="vendors_prec_table_tablebody_6" dataattribute="orgid" lookup="org" />
+              <tablecol id="vendors_prec_table_tablebody_7" dataattribute="siteid" lookup="site" />
+              <tablecol id="vendors_prec_table_tablebody_11" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+
+
+            <tabledetails id="vendors_prec_table_1" >
+
+              <section id="vendors_prec_table_1_grid9" label="Details" >
+
+                <sectionrow id="vendors_prec_table_1_grid9_row" >
+
+                  <sectioncol id="vendors_prec_table_1_grid9_row_col1" >
+
+                    <section id="vendors_prec_table_1_grid9_row_col1_sec" >
+                      <multiparttextbox id="vendors_prec_table_1_grid9_1" title="Table Window Vendor" dataattribute="vendor" lookup="companies" menutype="normal" applink="company" defaultfocus="true" applinkkey="company" descdataattribute="vendor.name" longdescreadonly="true" descinputmode="readonly" />
+                      <multiparttextbox id="vendors_prec_table_1_grid9_3" title="Table Window Manufacturer" dataattribute="manufacturer" smartfilloff="true" lookup="companies" menutype="normal" applink="company" descdataattribute="manufacturer.name" longdescreadonly="true" descinputmode="readonly" />
+                      <textbox id="vendors_prec_table_1_grid9_5" title="Table Window Model Number" dataattribute="modelnum" />
+                      <textbox id="vendors_prec_table_1_grid9_6" title="Table Window Catalog Code" dataattribute="catalogcode" />
+                      <textbox id="vendors_prec_table_1_grid9_7" title="Table Window Promised Lead Time" dataattribute="promdeliverytime" />
+                      <textbox id="vendors_prec_table_1_grid9_11" title="Table Window Tax Code" dataattribute="tax1code" lookup="taxcode" />
+                      <textbox id="vendors_prec_table_1_grid9_8" title="Table Window Currency Code" dataattribute="vendor.currencycode" inputmode="readonly" />
+                      <checkbox id="vendors_prec_table_1_grid9_13" title="Table Window Default Vendor" dataattribute="isdefault" />
+                    </section>
+
+                  </sectioncol>
+
+
+                  <sectioncol id="vendors_prec_table_1_grid9_row_col2" >
+
+                    <section id="vendors_prec_table_1_grid9_row_col2_sec" >
+                      <checkbox id="vendors_prec_table_1_grid9_12" title="Table Window Vendor Disqualified" dataattribute="vendor.disabled" inputmode="readonly" />
+                      <textbox id="vendors_prec_table_1_grid9_9" title="Table Window Last Price" dataattribute="lastcost" />
+                      <textbox id="vendors_prec_table_1_grid9_10" title="Table Window Last Order Date" dataattribute="lastdate" lookup="datelookup" />
+                      <textbox id="vendors_prec_table_1_grid9_15" title="Table Window Order Unit" dataattribute="orderunit" lookup="measureunit" />
+                      <textbox id="vendors_prec_table_1_grid9_14" title="Table Window Catalog Web Page" dataattribute="catalogwebpage" />
+                      <textbox id="vendors_prec_table_1_grid9_16" dataattribute="orgid" lookup="org" />
+                      <textbox id="vendors_prec_table_1_grid9_17" dataattribute="siteid" lookup="site" />
+                    </section>
+
+                  </sectioncol>
+
+                </sectionrow>
+
+              </section>
+
+            </tabledetails>
+
+
+            <buttongroup id="vendors_prec_table_2" >
+              <pushbutton id="vendors_prec_table_2_1" label="New Row" mxevent="addrow" default="true" />
+            </buttongroup>
+
+          </table>
+
+        </tab>
+
+
+        <tab id="specification" label="Specifications" >
+
+          <section id="specifications_grid2_row_col1_sec" border="true" >
+            <multiparttextbox id="specification_grid2_1" dataattribute="ITEMNUM" menutype="item" descdataattribute="DESCRIPTION" />
+            <textbox id="specification_grid3_1_1_3" ondatachange="resetchildren" dataattribute="CLASSSTRUCTURE.HIERARCHYPATH" menutype="classification" applink="assetcat" />
+          </section>
+
+
+          <table id="specification_itemspectable" label="Specifications" relationship="ITEMSPECCLASS" orderby="displaysequence" >
+
+            <tablebody id="specification_itemspectable_tablebody" filterable="true" displayrowsperpage="10" >
+              <tablecol id="specification_itemspectable_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+              <tablecol id="specification_itemspectable_tablebody_2" dataattribute="assetattrid" inputmode="readonly" />
+              <tablecol id="specification_itemspectable_tablebody_3" dataattribute="assetattribute.description" sortable="false" showfilterfield="true" inputmode="readonly" />
+              <tablecol id="specification_itemspectable_tablebody_4" dataattribute="assetattribute.datatype" sortable="false" showfilterfield="true" linkedcontrolid="specification_itemspectable_1_griddetails_3" />
+              <tablecol id="specification_itemspectable_tablebody_5" dataattribute="alnvalue" linkedcontrolid="specification_itemspectable_1_griddetails_4" />
+              <tablecol id="specification_itemspectable_tablebody_6" dataattribute="numvalue" linkedcontrolid="specification_itemspectable_1_griddetails_5" />
+              <tablecol id="specification_itemspectable_tablebody_7" dataattribute="measureunitid" linkedcontrolid="specification_itemspectable_1_griddetails_6" />
+              <tablecol id="specification_itemspectable_tablebody_8" dataattribute="section" linkedcontrolid="specification_itemspectable_1_griddetails_7" />
+              <tablecol id="specification_itemspectable_tablebody_9" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+
+
+            <tabledetails id="specification_itemspectable_1" >
+
+              <section id="specification_itemspectable_1_griddetails" label="Details" >
+
+                <sectionrow id="specifications_specifications_table_1_griddetails1_row" >
+
+                  <sectioncol id="specifications_specifications_table_1_griddetails1_row_col1" >
+
+                    <section id="specifications_specifications_table_1_griddetails1_row_col1_sec" >
+                      <multiparttextbox id="specification_itemspectable_1_griddetails_1" dataattribute="assetattrid" inputmode="readonly" defaultfocus="true" descdataattribute="assetattribute.description" descinputmode="readonly" />
+                      <textbox id="specification_itemspectable_1_griddetails_3" dataattribute="assetattribute.datatype" inputmode="readonly" />
+                    </section>
+
+                  </sectioncol>
+
+
+                  <sectioncol id="specifications_specifications_table_1_griddetails1_row_col2" >
+
+                    <section id="specifications_specifications_table_1_griddetails1_row_col2_sec" >
+                      <textbox id="specification_itemspectable_1_griddetails_4" dataattribute="alnvalue" lookup="alndomain" smartfilloff="true" />
+                      <textbox id="specification_itemspectable_1_griddetails_5" dataattribute="numvalue" lookup="numericdomain" smartfilloff="true" />
+                      <textbox id="specification_itemspectable_1_griddetails_6" dataattribute="measureunitid" lookup="measureunit" />
+                      <textbox id="specification_itemspectable_1_griddetails_7" dataattribute="section" inputmode="readonly" />
+                    </section>
+
+                  </sectioncol>
+
+                </sectionrow>
+
+              </section>
+
+            </tabledetails>
+
+          </table>
+
+        </tab>
+
+
+        <tab id="ias_tab" label="Item Assembly Structure" >
+          <datasrc id="ias" parentdatasrc="MAINRECORD" relationship="TOPITEMSTRUCT_1" beanclass="psdi.webclient.beans.item.TopItemStructBean" />
+          <datasrc id="parentitem" parentdatasrc="ias" relationship="PARENT" />
+
+          <section id="ias_tab_grid2" border="true" >
+            <multiparttextbox id="ias_tab_grid2_1" label="Top Level Item" dataattribute="itemnum" menutype="item" descdataattribute="description" />
+            <multiparttextbox id="ias_tab_grid2_3" label="Current Level" datasrc="ias" dataattribute="itemnum" menutype="item" descdataattribute="item.description" descdatasrc="ias" longdescreadonly="true" descinputmode="readonly" />
+            <multiparttextbox id="ias_tab_grid2_5" label="Belongs To" datasrc="parentitem" dataattribute="itemnum" lookup="itemwithitemset" menutype="itemhier" applink="item" movetodatasrc="ias" movetoqbe="false" descdatasrc="ias" descdataattribute="item.description" longdescreadonly="true" descinputmode="readonly" />
+            <textbox id="ias_tab_grid2_7" datasrc="ias" dataattribute="remark" lookup="longdesc" />
+          </section>
+
+
+          <table id="ias_tab_children_table" label="Children" parentdatasrc="ias" relationship="CHILDREN" >
+
+            <tablebody id="ias_tab_children_table_tablebody" filterable="true" displayrowsperpage="10" >
+              <tablecol id="ias_tab_children_table_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+              <tablecol id="ias_tab_children_table_tablebody_2" dataattribute="itemnum" lookup="itemwithitemset" menutype="itemhier" movetodatasrc="ias" defaultfocus="true" movetoqbe="false" applink="item,inventor" />
+
+              <tablecol id="ias_tab_children_table_tablebody_3" dataattribute="item.description" sortable="false" >
+                <textbox id="ias_item_desc" dataattribute="item.description" inputmode="readonly" lookup="longdesc" longdescreadonly="true" />
+              </tablecol>
+
+              <tablecol id="ias_tab_children_table_tablebody_4" dataattribute="quantity" />
+              <tablecol id="ias_tab_children_table_tablebody_5" dataattribute="remark" linkedcontrolid="ias_tab_children_table_1_grid3_4" />
+              <tablecol id="ias_tab_children_table_tablebody_6" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+
+
+            <tabledetails id="ias_tab_children_table_1" >
+
+              <section id="ias_tab_children_table_1_grid3" label="Details" >
+
+                <sectionrow id="ias_tab_children_table_1_grid3_row" >
+
+                  <sectioncol id="ias_tab_children_table_1_grid3_row_col1" >
+
+                    <section id="ias_tab_children_table_1_grid3_row_col1_sec" >
+                      <multiparttextbox id="ias_tab_children_table_1_grid3_1" dataattribute="itemnum" lookup="itemwithitemset" menutype="itemhier" movetodatasrc="ias" defaultfocus="true" movetoqbe="false" applink="item,inventor" descdataattribute="item.description" longdescreadonly="true" longdescription="true" descinputmode="readonly" />
+                      <textbox id="ias_tab_children_table_1_grid3_3" dataattribute="quantity" />
+                    </section>
+
+                  </sectioncol>
+
+
+                  <sectioncol id="ias_tab_children_table_1_grid3_row_col2" >
+
+                    <section id="ias_tab_children_table_1_grid3_row_col2_sec" >
+                      <textbox id="ias_tab_children_table_1_grid3_4" dataattribute="remark" lookup="longdesc" />
+                    </section>
+
+                  </sectioncol>
+
+                </sectionrow>
+
+              </section>
+
+            </tabledetails>
+
+
+            <buttongroup id="ias_tab_children_table_2" >
+              <pushbutton id="ias_tab_children_table_2_1" label="New Row" mxevent="addrow" default="true" />
+            </buttongroup>
+
+          </table>
+
+        </tab>
+
+      </tabgroup>
+
+    </clientarea>
+
+    <include id="pageFooter" />
+  </page>
+
+
+  <dialog id="searchmore" label="More Search Fields" inputmode="query" beanclass="psdi.webclient.beans.common.ClassificationBean" >
+
+    <section id="qbe_grid5" >
+
+      <sectionrow id="qbe_grid5_r1" >
+
+        <sectioncol id="qbe_grid5_r1_c1" >
+
+          <section id="qbe_grid5_r1_c1_s1" >
+            <multiparttextbox id="qbe_grid5_1_1_1" dataattribute="ITEMNUM" menutype="item" inputmode="query" descdataattribute="DESCRIPTION" descinputmode="query" />
+            <multiparttextbox id="qbe_grid5_1_1_3" dataattribute="ITEMSETID" lookup="itemset" inputmode="query" descdataattribute="SETS.DESCRIPTION" descinputmode="query" />
+            <textbox id="qbe_grid5_1_1_5" dataattribute="commoditygroup" lookup="commoditygroup" inputmode="query" applink="commoditygroup,ipc" />
+            <textbox id="qbe_grid5_1_1_14" dataattribute="GROUPNAME" lookup="metergroup" menutype="normal" applink="metergrp" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_15" dataattribute="METERNAME" lookup="meter" menutype="normal" applink="meter" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_9" dataattribute="MSDSNUM" inputmode="query" />
+            <textbox id="qbe_classificationhierarchy" dataattribute="CLASSSTRUCTURE.HIERARCHYPATH" menutype="classificationqbe" applink="assetcat" inputmode="query" />
+          </section>
+
+        </sectioncol>
+
+
+        <sectioncol id="qbe_grid5_r1_c2" >
+
+          <section id="qbe_grid5_r1_c2_s1" >
+            <textbox id="qbe_grid5_1_1_8" dataattribute="LOTTYPE" lookup="valuelist" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_12" dataattribute="CAPITALIZED" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_16" dataattribute="iskit" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_17" dataattribute="conditionenabled" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_11" dataattribute="ROTATING" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_13" dataattribute="OUTSIDE" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_10" dataattribute="INSPECTIONREQUIRED" inputmode="query" />
+            <textbox id="qbe_grid5_1_1_7" dataattribute="SPAREPARTAUTOADD" inputmode="query" />
+          </section>
+
+        </sectioncol>
+
+      </sectionrow>
+
+    </section>
+
+
+    <buttongroup id="qbe_grid5_1_1_grid6" >
+      <pushbutton id="qbe_grid5_1_1_grid6_1" label="Find" default="true" mxevent="dialogok" />
+      <pushbutton id="qbe_grid5_1_1_grid6_2" label="Clear" mxevent="qbeclear" />
+      <pushbutton id="qbe_grid5_1_1_grid6_3" label="Cancel" mxevent="qbecancel" />
+    </buttongroup>
+
+  </dialog>
+
+
+  <dialog id="additems" label="Add Items to Storeroom" mboname="LOCATIONS" beanclass="psdi.webclient.beans.item.SelectStoreroomBean" listaction="true" >
+
+    <section id="additems_grid1" border="true" mboname="LOCATIONS" >
+      <textbox id="additems_grid1_1_1_grid3_3" dataattribute="addToStoreSiteId" menutype="normal" applink="multisite" lookup="site" />
+      <multiparttextbox id="additems_grid1_1_1_grid3_1" dataattribute="addToStoreLoc" menutype="normal" applink="storeroom,ipc" lookup="locations" descdataattribute="LOCATIONS_ADDTOSTORE.DESCRIPTION" desclookup="longdesc" desclongdescreadonly="true" descinputmode="readonly" />
+    </section>
+
+
+    <buttongroup id="additems_buttongroup" show="true" >
+      <pushbutton id="additems_buttongroup_3" label="OK" default="true" mxevent="nextdialog" value="additemstostoreroom" />
+      <pushbutton id="additems_buttongroup_4" label="Cancel" mxevent="dialogcancel" />
+    </buttongroup>
+
+  </dialog>
+
+
+  <dialog id="additemstostoreroom" label="Add Items to Storeroom" beanclass="psdi.webclient.beans.item.AddItemsBean" >
+
+    <table id="additems_grid1_1_1_inventorytable" label="Storeroom Information" width="750" >
+
+      <tablebody id="additems_grid1_1_1_inventorytable_tablebody" displayrowsperpage="10" >
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_2" dataattribute="itemnum" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_1" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_3" dataattribute="binnum" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_3" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_4" dataattribute="category" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_4" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_5" dataattribute="stdcost" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_5" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_6" dataattribute="avgcost" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_8" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_7" dataattribute="lastcost" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_6" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_8" dataattribute="curbal" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_7" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_9" dataattribute="lotnum" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_9" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_10" dataattribute="issueunit" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_10" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_11" dataattribute="orderunit" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_11" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_12" dataattribute="siteid" linkedcontrolid="additems_grid1_1_1_inventorytable_1_grid3_12" />
+        <tablecol id="additems_grid1_1_1_inventorytable_tablebody_13" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+      </tablebody>
+
+
+      <tabledetails id="additems_grid1_1_1_inventorytable_1" >
+
+        <section id="additems_grid1_1_1_inventorytable_1_grid3" label="Details" >
+
+          <sectionrow id="additems_grid1_1_1_inventorytable_1_row1" >
+
+            <sectioncol id="additems_grid1_1_1_inventorytable_1_row1_col1" >
+
+              <section id="additems_grid1_1_1_inventorytable_1_row1_col1_sec1" >
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_1" dataattribute="itemnum" lookup="itemwithitemset" defaultfocus="true" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_2" dataattribute="conditioncode" lookup="conditioncode" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_3" dataattribute="binnum" sizeintable="8" smartfilloff="true" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_4" dataattribute="category" lookup="valuelist" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_5" dataattribute="stdcost" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_6" dataattribute="lastcost" />
+              </section>
+
+            </sectioncol>
+
+
+            <sectioncol id="additems_grid1_1_1_inventorytable_1_row1_col2" >
+
+              <section id="additems_grid1_1_1_inventorytable_1_row1_col2_sec1" >
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_12" dataattribute="siteid" sizeintable="8" inputmode="readonly" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_7" dataattribute="curbal" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_8" dataattribute="avgcost" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_9" dataattribute="lotnum" lookup="invlot" smartfilloff="true" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_10" dataattribute="issueunit" sizeintable="8" lookup="measureunit" />
+                <textbox id="additems_grid1_1_1_inventorytable_1_grid3_11" dataattribute="orderunit" sizeintable="8" lookup="measureunit" />
+              </section>
+
+            </sectioncol>
+
+          </sectionrow>
+
+        </section>
+
+      </tabledetails>
+
+    </table>
+
+
+    <buttongroup id="additemstostoreroom_buttongroup" show="true" >
+      <pushbutton id="additemstostoreroom_buttongroup_3" label="OK" default="true" mxevent="dialogok" />
+      <pushbutton id="additemstostoreroom_buttongroup_4" label="Cancel" mxevent="dialogcancel" />
+    </buttongroup>
+
+  </dialog>
+
+
+  <dialog id="copyias" label="Copy Item Assembly Structure" relationship="COPYIASDLG" beanclass="psdi.webclient.beans.item.CopyIasBean" >
+
+    <table id="copyias_grid1_1_1_virtualset1" label="Items" >
+
+      <tablebody id="copyias_grid1_1_1_virtualset1_tablebody" displayrowsperpage="15" filterexpanded="true" filterable="true" >
+        <tablecol id="copyias_grid1_1_1_virtualset1_tablebody_2" dataattribute="itemnum" mxevent="selectrecord" sortable="false" type="link" />
+        <tablecol id="copyias_grid1_1_1_virtualset1_tablebody_3" dataattribute="item.description" sortable="false" showfilterfield="true" />
+      </tablebody>
+
+    </table>
+
+
+    <buttongroup id="copyias_2" >
+      <pushbutton id="copyias_2_1" label="Cancel" default="true" mxevent="dialogcancel" />
+    </buttongroup>
+
+  </dialog>
+
+
+  <dialog id="itemorg" label="Item/Organization Details" relationship="ITEMORGINFO" width="900" >
+
+    <table id="itemorg_grid1_1_1_itemorginfo_table" >
+
+      <tablebody id="itemorg_grid1_1_1_itemorginfo_table_tablebody" filterable="true" displayrowsperpage="5" >
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_1" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" hidden="false" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_2" dataattribute="orgid" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_3" dataattribute="organization.description" sortable="false" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_4" dataattribute="hazardid" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_5" dataattribute="tax1code" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_6" dataattribute="tax2code" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_7" dataattribute="tax3code" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_8" dataattribute="tax4code" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_9" dataattribute="tax5code" />
+        <tablecol id="itemorg_grid1_1_1_itemorginfo_table_tablebody_12" type="event" mxevent="toggledeleterow" mxevent_icon="btn_garbage.gif" mxevent_desc="Mark Row for Delete" sortable="false" filterable="false" hidden="false" />
+      </tablebody>
+
+
+      <tabledetails id="itemorg_grid1_1_1_itemorginfo_table_1" >
+
+        <section id="itemorg_grid1_1_1_itemorginfo_table_1_grid3" label="Details" >
+
+          <sectionrow id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_row" >
+
+            <sectioncol id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_row_col1" >
+
+              <section id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_row_col1_sec" >
+                <multiparttextbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_1" dataattribute="orgid" lookup="org" defaultfocus="true" descdataattribute="organization.description" descsizeintable="30" longdescreadonly="true" descinputmode="readonly" />
+                <multiparttextbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_3" dataattribute="hazardid" lookup="hazards" descdataattribute="hazard.description" longdescreadonly="true" descinputmode="readonly" />
+              </section>
+
+            </sectioncol>
+
+
+            <sectioncol id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_row_col2" >
+
+              <section id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_row_col2_sec" >
+                <textbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_grid4_1" dataattribute="tax1code" lookup="taxcode" />
+                <textbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_grid4_2" dataattribute="tax2code" lookup="taxcode" />
+                <textbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_grid4_3" dataattribute="tax3code" lookup="taxcode" />
+                <textbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_grid4_4" dataattribute="tax4code" lookup="taxcode" />
+                <textbox id="itemorg_grid1_1_1_itemorginfo_table_1_grid3_1_1_grid4_5" dataattribute="tax5code" lookup="taxcode" />
+              </section>
+
+            </sectioncol>
+
+          </sectionrow>
+
+        </section>
+
+      </tabledetails>
+
+
+      <buttongroup id="itemorg_grid1_1_1_itemorginfo_table_2" >
+        <pushbutton id="itemorg_grid1_1_1_itemorginfo_table_2_1" label="New Row" mxevent="addrow" default="true" />
+      </buttongroup>
+
+    </table>
+
+
+    <buttongroup id="itemorg_2" >
+      <pushbutton id="itemorg_2_1" label="OK" default="true" mxevent="dialogok" />
+      <pushbutton id="itemorg_2_2" label="Cancel" mxevent="dialogcancel" />
+    </buttongroup>
+
+  </dialog>
+
+
+  <dialog id="viewcont" label="View Contracts" relationship="CONTRACTLINE_NOHIST" >
+    <helpgrid id="viewcont_helpgrid" innerhtml="To refine your search, enter filter criteria for the column(s) and press &lt;b&gt;Enter&lt;/b&gt; or click &lt;IMG border=&quot;0&quot; SRC=&quot;../webclient/images/qf_find.gif&quot;&gt;." />
+
+    <table id="viewcont_contracts_table" inputmode="readonly" label="Contracts" >
+
+      <tablebody id="viewcontracts_table_tablebody" displayrowsperpage="20" filterexpanded="true" filterable="true" >
+        <tablecol id="viewcontracts_tablebody_1" dataattribute="contractnum" sortable="false" />
+        <tablecol id="viewcontracts_tablebody_2" dataattribute="revisionnum" sortable="false" />
+        <tablecol id="viewcontracts_tablebody_3" dataattribute="CONTRACT.description" sortable="false" />
+        <tablecol id="viewcontracts_table_tablebody_4" dataattribute="contracttype" sortable="false" />
+        <tablecol id="viewcontracts_tablebody_5" dataattribute="CONTRACT.startdate" sortable="false" />
+        <tablecol id="viewcontracts_tablebody_6" dataattribute="CONTRACT.enddate" sortable="false" />
+        <tablecol id="viewcontracts_table_tablebody_7" dataattribute="CONTRACT.status" sortable="false" />
+      </tablebody>
+
+    </table>
+
+
+    <buttongroup id="viewcont_contracts_2" >
+      <pushbutton id="viewcont_contracts_2_1" label="OK" default="true" mxevent="dialogok" />
+    </buttongroup>
+
+  </dialog>
+
+
+  <dialog id="searchbook" label="My Bookmarks" mboname="ITEM" beanclass="psdi.webclient.system.beans.ViewBookmarksBean" >
+
+    <table id="bookmarks_table" selectmode="single" label="Items" inputmode="readonly" >
+
+      <tablebody id="bookmarks_table_tablebody" displayrowsperpage="20" filterable="true" >
+        <tablecol id="bookmarks_tablebody_1" dataattribute="itemnum" mxevent="selectrecord" type="link" />
+        <tablecol id="bookmarks_table_tablebody_2" dataattribute="description" />
+        <tablecol id="bookmarks_table_tablebody_delete" type="event" mxevent="instantdelete" mxevent_icon="btn_delete.gif" mxevent_desc="Delete" sortable="false" filterable="false" hidden="false" />
+      </tablebody>
+
+    </table>
+
+
+    <buttongroup id="bookmarks_2" >
+      <pushbutton id="bookmarks_2_1" label="OK" mxevent="dialogok" default="true" />
+    </buttongroup>
+
+  </dialog>
+
+</presentation>
+
