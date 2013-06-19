@@ -40,7 +40,7 @@
 
                 <section id="main_gridf" >
                   <multiparttextbox id="main_grid2_1" dataattribute="ITEMNUM" menutype="item" descdataattribute="DESCRIPTION" longdescription="true" />
-                  <multiparttextbox id="main_grid3_1" dataattribute="COMMODITYGROUP" descdataattribute="COMMODITYGROUP.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="commoditygroup" menutype="COMMODITYGROUP" />
+                  <multiparttextbox id="main_grid3_1" dataattribute="COMMODITYGROUP" descdataattribute="COMMODITYGROUP.DESCRIPTION" longdescreadonly="true"  descinputmode="readonly" applink="commodities, " lookup="commoditygroup" menutype="normal" />
                   <multiparttextbox id="main_grid3_4" dataattribute="COMMODITY" descdataattribute="COMMODITIES.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="commodities" />
                   <multiparttextbox id="main_grid3_14" dataattribute="GROUPNAME" descdataattribute="METERGROUP.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="metergroup" menutype="normal" applink="metergrp" />
                   <multiparttextbox id="main_grid3_15" dataattribute="METERNAME" descdataattribute="METER.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="meter" menutype="normal" applink="meter" />
@@ -495,7 +495,7 @@
           <section id="qbe_grid5_r1_c1_s1" >
             <multiparttextbox id="qbe_grid5_1_1_1" dataattribute="ITEMNUM" menutype="item" inputmode="query" descdataattribute="DESCRIPTION" descinputmode="query" />
             <multiparttextbox id="qbe_grid5_1_1_3" dataattribute="ITEMSETID" lookup="itemset" inputmode="query" descdataattribute="SETS.DESCRIPTION" descinputmode="query" />
-            <textbox id="qbe_grid5_1_1_5" dataattribute="commoditygroup" lookup="commoditygroup" inputmode="query" applink="commoditygroup,ipc" />
+            <textbox id="qbe_grid5_1_1_5" dataattribute="commoditygroup" lookup="commodities" inputmode="query" menutype="normal" applink="commodities" />
             <textbox id="qbe_grid5_1_1_14" dataattribute="GROUPNAME" lookup="metergroup" menutype="normal" applink="metergrp" inputmode="query" />
             <textbox id="qbe_grid5_1_1_15" dataattribute="METERNAME" lookup="meter" menutype="normal" applink="meter" inputmode="query" />
             <textbox id="qbe_grid5_1_1_9" dataattribute="MSDSNUM" inputmode="query" />
