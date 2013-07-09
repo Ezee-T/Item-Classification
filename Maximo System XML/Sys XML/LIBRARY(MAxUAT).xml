@@ -1335,7 +1335,7 @@
 
   <dialog id="qbeclassification" label="Select Classification" >
 
-    <tree mboname="CLASSSTRUCTURE" id="searchClassification_tree" beanclass="psdi.webclient.beans.common.SearchSpecBean" width="600" height="250" >
+    <tree mboname="CLASSSTRUCTURE" id="searchClassification_tree" beanclass="psdi.webclient.beans.common.SearchSpecBean" width="600" height="350" >
 
       <treenode id="searchClassification_tree_node1" objectname="CLASSSTRUCTURE" keyattribute="classstructureuid" displayobjectname="false" displaykeyattribute="false" >
         <treeattribute id="searchClassification_tree_node1_attr1" dataattribute="classificationid" display="true" />
@@ -1360,7 +1360,7 @@
 
         <sectioncol id="searchClassificationItem_container1_row1_col1" >
 
-          <tree id="classificationSearchItem_tree" width="200" height="200" >
+          <tree id="classificationSearchItem_tree" width="200" height="200" maxchildren="500">
 
             <treenode id="classificationSearchItem_tree_node1" objectname="CLASSSTRUCTURE" keyattribute="classstructureuid" displayobjectname="false" displaykeyattribute="false" enablereturn="false" >
               <treeattribute id="classificationSearchItem_tree_node1_attr1" dataattribute="classificationid" display="true" />
@@ -1377,10 +1377,9 @@
 
           <table id="classspec_table" label="Attributes" relationship="CLASSSPEC" >
 
-            <tablebody id="classspec_tablebody" filterable="true" displayrowsperpage="5" filterexpanded="false" >
+            <tablebody id="classspec_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspec_table_tablebody_2" dataattribute="ASSETATTRID" />
-              <tablecol id="classspec_table_tablebody_3" dataattribute="attributedesc" sortable="false" inputmode="readonly" />
-              <tablecol id="classspec_table_tablebody_5" dataattribute="section" />
+              <tablecol id="classspec_table_tablebody_3" dataattribute="ASSETATTRIBUTE.DESCRIPTION" sortable="false" inputmode="readonly" />
               <tablecol id="classspec_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" lookup="alndomain" smartfilloff="true" />
             </tablebody>
 
@@ -1401,7 +1400,7 @@
 
     <table id="classspec_tableA" label="Items" relationship="ITEM" inputmode="readonly" beanclass="psdi.webclient.beans.assetcat.SelectValueBean" >
 
-      <tablebody id="classspec_tablebodyA" filterable="true" displayrowsperpage="5" filterexpanded="false" >
+      <tablebody id="classspec_tablebodyA" filterable="true" displayrowsperpage="15" filterexpanded="false">
         <tablecol id="classspec_table_tablebody_2A" dataattribute="ITEMNUM" mxevent_desc="Go To %1" mxevent="selectrecord" sortable="false" type="link" />
         <tablecol id="classspec_table_tablebody_3A" dataattribute="DESCRIPTION" mxevent_desc="Go To %1" mxevent="selectrecord" sortable="false" type="link" />
         <tablecol id="classspec_table_tablebody_4A" type="event" mxevent="itemavail" mxevent_icon="menu_icon_checkavail.gif" mxevent_desc="View Item Availability" sortable="false" filterable="false" />
