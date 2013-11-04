@@ -40,7 +40,7 @@
 
                 <section id="main_gridf" >
                   <multiparttextbox id="main_grid2_1" dataattribute="ITEMNUM" menutype="item" descdataattribute="DESCRIPTION" longdescription="true" />
-                  <multiparttextbox id="main_grid3_1" dataattribute="COMMODITYGROUP" descdataattribute="COMMODITYGROUP.DESCRIPTION" longdescreadonly="true"  descinputmode="readonly" applink="commodities, " lookup="commoditygroup" menutype="normal" />
+                  <multiparttextbox id="main_grid3_1" dataattribute="COMMODITYGROUP" descdataattribute="COMMODITYGROUP.DESCRIPTION" longdescreadonly="true"  descinputmode="readonly" lookup="item" />
                   <multiparttextbox id="main_grid3_4" dataattribute="COMMODITY" descdataattribute="COMMODITIES.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="commodities" />
                   <multiparttextbox id="main_grid3_14" dataattribute="GROUPNAME" descdataattribute="METERGROUP.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="metergroup" menutype="normal" applink="metergrp" />
                   <multiparttextbox id="main_grid3_15" dataattribute="METERNAME" descdataattribute="METER.DESCRIPTION" longdescreadonly="true" descinputmode="readonly" lookup="meter" menutype="normal" applink="meter" />

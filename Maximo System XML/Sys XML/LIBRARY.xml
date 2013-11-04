@@ -1507,7 +1507,7 @@
             <tablebody id="classspecLocations_tablebody" filterable="true" displayrowsperpage="10" filterexpanded="false" >
               <tablecol id="classspecLocations_table_tablebody_2" dataattribute="ASSETATTRID" />
               <tablecol id="classspec_table_tablebody_3" dataattribute="ASSETATTRIBUTE.DESCRIPTION" />
-              <tablecol id="classspecAsset_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" inputmode="readonly" smartfilloff="true" />
+              <tablecol id="classspecLocations_table_tablebody_4" dataattribute="SPECVALUE" sortable="false" lookup="alndomain" smartfilloff="true" />
             </tablebody>
 
 
